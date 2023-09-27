@@ -107,7 +107,7 @@ for line in infile:
 
 # Specify the path to your Excel file
 excel_file_path = 'Assignment1GoldStandardSet.xlsx'
-excel_file_path ='UnlabeledSet.xlsx'
+#excel_file_path ='UnlabeledSet.xlsx'
 
 # Read the Excel file into a pandas DataFrame using the 'openpyxl' engine
 df = pd.read_excel(excel_file_path)
@@ -191,7 +191,7 @@ if all(column in df.columns for column in required_columns):
              
              if cui not in cui_values_dict:
 
-                 if negated_result==1:  # Use the new variable to check if it's negated
+                 if negated_result==1:  
                      cui_values_dict[cui] = True
                      cui_values.append(f"{cui}")
                      negation_values.append("1")
@@ -201,12 +201,12 @@ if all(column in df.columns for column in required_columns):
                     negation_values.append("0")
                     
              if cui in cui_values_dict: 
-                 if negated_result==1:  # Use the new variable to check if it's negated
+                 if negated_result==1:  
                      if cui_values_dict[cui] ==0:
                         cui_values_dict[cui] = True
                         cui_values.append(f"{cui}")
                         negation_values.append("1")
-                 if negated_result==0:  # Use the new variable to check if it's negated
+                 if negated_result==0:  
                      if cui_values_dict[cui] ==1:
                         cui_values_dict[cui] = True
                         cui_values.append(f"{cui}")
@@ -228,7 +228,7 @@ result_df = pd.DataFrame({'ID': df_ID,'TEXT':df_text,'Symptom CUIs': df_cui_outp
 
 # Save the DataFrame as an Excel file
 result_df.to_excel('result.xlsx')
-result_df.to_excel('result_UnlabeledSet.xlsx')
+#result_df.to_excel('result_UnlabeledSet.xlsx')
 
 
 # Plot Histogram
